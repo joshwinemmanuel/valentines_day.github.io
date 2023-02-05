@@ -1,0 +1,173 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+  <style>
+    body {
+      background-color: #333;
+    }
+
+    .warning-box {
+      width: 300px;
+      height: 160px;
+      background-color: #ffffff;
+      border: 1px solid #000;
+      border-radius: 10.9px;
+      text-align: center;
+      margin: 20px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0px 0px 10px #000;
+      padding-bottom: 20px;
+    }
+
+    .warning-buttons {
+      bottom: 0;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      position: absolute;
+    }
+
+    .warning-button1 {
+      background-color: #ff0000;
+      border: none;
+      border-radius: 0 0 10px 10px;
+      color: #fff;
+      cursor: pointer;
+      height: 50px;
+
+      width: 100%;
+    }
+
+    .warning-button1:hover {
+      background-color: #ff3f3f;
+    }
+
+    .warning-icon {
+      font-size: 40px;
+      color: #ff0000;
+      padding: 30px 0;
+      
+    }
+
+    .warning-text {
+      font-size: 18px;
+      color: #000;
+      position: absolute;
+      bottom: 40;
+      
+    }
+
+    .warning-button2 {
+      background-color: #ff0000;
+      display: none;
+      border: none;
+      border-radius: 0 0 10px 0;
+      color: #fff;
+      cursor: pointer;
+      height: 50px;
+      
+      width: 100%;
+    }
+
+    .warning-button2:hover {
+      background-color: #ff3f3f;
+    }
+
+    @keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, 1px) rotate(0deg); }
+}
+.shake {
+      animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+      transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
+      perspective: 1000px;
+    }
+
+  </style>
+
+</head>
+
+<body>
+  <div class="warning-box">
+    <div class="warning-icon">
+      <i class="fas fa-exclamation-triangle"></i>
+    </div>
+    <p class="warning-text">Warning: Your device has been hacked, LOL!!!</p>
+    <div class="warning-buttons">
+      <button class="warning-button1">OK</button>
+      <button class="warning-button2">YES</button>
+    </div>
+  </div>
+</body>
+
+<script>
+  const warningButton1 = document.querySelector(".warning-button1");
+  const warningButton2 = document.querySelector(".warning-button2");
+  const warningText = document.querySelector(".warning-text");
+  const warningIcon = document.querySelector('.warning-icon');
+  warningButton2.addEventListener("click", function () {
+     document.querySelector('.warning-icon i').className = "fas fa-check-circle";
+    document.querySelector('.warning-icon i').style.color = "#00d25b";
+    document.querySelector('.warning-button1').style.backgroundColor = "#00d25b";
+    document.querySelector('.warning-button2').style.backgroundColor = "#00d25b";
+    document.querySelector('.warning-button1').style.color = "#fff";
+    document.querySelector('.warning-button2').style.color = "#fff";
+    warningButton2.innerHTML = "&#128150 &#128150 &#128150";
+      document.querySelector('.warning-button1').style.display = "none";
+      document.querySelector('.warning-button2').style.borderRadius = '0 0 10px 10px';
+      warningText.innerHTML = "Thank you <br> ❤ ";
+
+  });
+
+
+  let i = 0;
+
+  warningButton1.addEventListener("click", function () {
+    
+    i = (i + 1)
+    if (i == 1) {
+      warningText.innerHTML = "However, <br>I have one questin for you....";
+    }
+    if (i == 2) {
+      warningButton1.innerHTML = "NO";
+      document.querySelector('.warning-button2').style.display = "block";
+      document.querySelector('.warning-button1').style.borderRadius = '0 0 0 10px';
+      warningText.innerHTML = "Will you be my valentine <br>???";
+    }
+    if (i >= 3) {
+       document.querySelector('.warning-button1').style.borderRadius = '0 0 0 10px';
+      warningText.innerHTML = "Please <br> &#x1F64F; ";
+    }
+    if (i >= 20) {
+      document.querySelector('.warning-button2').style.display = "none";
+      document.querySelector('.warning-button1').style.borderRadius = '0 0 10px 10px';
+      warningText.innerHTML = "Fcuk OFF <br> &#128405; ";
+      warningButton1.innerHTML = "OK BYE";
+    }
+    document.querySelector('.warning-icon').classList.add('shake');
+
+  });
+
+  document.querySelector('.warning-icon').addEventListener('animationend', function() {
+  document.querySelector('.warning-icon').classList.remove('shake');
+});
+</script>
+
+</html>
